@@ -47,27 +47,9 @@ io.sockets.on('connection', function (socket){
 	//add it to the array of connected sockets
 	connectedSockets.push(socket);
 
-	// receives a random photo from a client
-	// socket.on('clientGyro', function(data){
+});
 
-	// 	alpha = Math.floor(data[0]);
-	// 	beta = Math.floor(data[1]);
-	// 	gamma = Math.floor(data[2]);
-
-	// 	gyroVals[0] = alpha;
- //        gyroVals[1] = beta;
- //        gyroVals[2] = gamma;
-
-	// 	console.log("Received gyroVals from client: " + gyroVals);
-	// 	if(ws){
-	// 		ws.send(String(alpha)+','+String(beta)+','+String(gamma));
-	// 	}
-
-	});
-
-	socket.on('disconnect', function(){
-		console.log("Client has disconnected!");
-	})
-
+socket.on('disconnect', function(){
+	console.log("Client has disconnected!");
 });
 
