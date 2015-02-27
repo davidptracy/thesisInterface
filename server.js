@@ -47,9 +47,9 @@ io.sockets.on('connection', function (socket){
 	//add it to the array of connected sockets
 	connectedSockets.push(socket);
 
-});
-
-socket.on('disconnect', function(){
+	socket.on('disconnect', function(){
 	console.log("Client has disconnected!");
 });
 
+
+});
