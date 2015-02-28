@@ -71,6 +71,7 @@ io.sockets.on('connection', function (socket){
 function Entity(data){	
 	if(data.name){
 		this.name = data.name;
+		console.log("Got new object: " + this.name);
 	}	
 }
 
