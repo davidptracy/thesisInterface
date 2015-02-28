@@ -11,7 +11,7 @@ function draw() {
 	for(var i = 0; i < components.length; i++) {
 		var c = components[i];
 
-		if ( mouseIsPressed() ){
+		if ( mouseIsPressed ){
 			if ( mouseX > c.location.x && mouseX < (640 - c.width + c.location.x) );
 			c.setColor('red'); 
 		} else {
