@@ -53,7 +53,7 @@ io.sockets.on('connection', function (socket){
 
 		var object = new Entity(data, socket.id);
 		objects.push(object);
-		console.log("New Object: " + object);
+		console.log("New Object: " + object.name);
 
 		io.to(socket.id).emit('message', 'Server received object information');
 
@@ -78,10 +78,15 @@ function updateClient(){
 	
 	if (objects){
 
-		for (var object in objects){
+		for(var i = 0; i < objects.length; i++){
 			io.sockets.emit('objectFromServer', object);
-			console.log('sending object: '+ object.name );
+			console.log('sending object: '+ object.name );	
 		}
+
+		// for (var object in objects){
+		// 	io.sockets.emit('objectFromServer', object);
+		// 	console.log('sending object: '+ object.name );
+		// }
 
 	}
 }
