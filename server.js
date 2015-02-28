@@ -53,13 +53,13 @@ io.sockets.on('connection', function (socket){
 		console.log("Client has disconnected!");
 	});
 
-	socket.on('objectProperties' function(data){
+	socket.on('objectProperties', function(data){
 
 		var object = new Entity(data);
 		objects.push(object);
 
 		socket.id.emit('message', 'Received Object Information');
-		
+
 	});
 
 });
