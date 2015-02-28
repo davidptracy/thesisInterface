@@ -27,7 +27,10 @@ socket.on('objectDisconnectFromServer', function(data){
 	console.log('received device disconnection notice ' + id);
 
 	for (var i = 0; i < components.length; i++) {
+		
 		var c = components[i];
+
+		console.log("trying to remove ... " + c.socketId);
 
 		if (c.socketId == id){
 			var indexToRemove = components.indexOf(c);
