@@ -19,6 +19,20 @@ socket.on('objectFromServer', function(data){
 		var component = new Component(data);
 		components.push(component);
 	}
+
+});
+
+socket.on('objectDisconnectFromServer', function(data){
+	var id = data;
+
+	for (var i = 0; i < components.length; i++) {
+		var c = components[i];
+
+		if (c.id == id){
+			var indexToRemove = components.indexOf(c);
+			components.splice(indexToRemove, 1);
+		};		
+	}
 	
 });
 
