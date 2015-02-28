@@ -15,7 +15,7 @@ function Component(data){
 		console.log(this.name+" has "+this.outputs+" outputs.");
 	}
 
-	this.socketId = id;
+	this.socketId = data.id;
 
 	var width = (this.name.length * 4) + 20;
 
