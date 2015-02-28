@@ -41,5 +41,6 @@ Component.prototype.display = function(){
 Component.prototype.setColor = function(color){
 
 	fill(color);
+	console.log("setColor triggered!");
 
 }
