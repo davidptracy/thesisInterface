@@ -30,14 +30,16 @@ socket.on('disconnect', function(){
 	console.log('Disconnected from Server');
 });
 
-
-
 function verifyEntity(data){
-	for (var i = 0; i < components.length; i++) {
-        if (components[i].id === data.id) {
-        	console.log(data.name + " already exists!");
-            return true;
-        }
-    }
-    return false;
+
+	if (components){
+		for (var i = 0; i < components.length; i++) {
+	        if (components[i].id === data.id) {
+	        	console.log(data.name + " already exists!");
+	            return true;
+	        }
+	    }
+	} else {
+	    return false;
+	}
 }
