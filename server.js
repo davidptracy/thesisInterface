@@ -76,6 +76,8 @@ io.sockets.on('connection', function (socket){
 //================== GLOBAL METHODS ======================
 //========================================================
 
+//comment
+
 function removeEntity(socketId){
 
 	var id = socketId;
