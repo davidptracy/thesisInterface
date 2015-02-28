@@ -27,9 +27,9 @@ function Component(data){
 
 }
 
-Component.prototype.display(){
+Component.prototype.display = function(){
 	stroke(0,0,0);
 	strokeWeight(2);
 	fill( 255,255,255 );
-	rect( 50,50, width, height );
+	rect( 50,50, this.width, this.height );
 }
