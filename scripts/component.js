@@ -25,7 +25,7 @@ function Component(data){
 		this.height = this.inputs * 25;
 	}	
 
-	this.location = new PVector(50,50);
+	this.location = new P5.Vector(50,50);
 
 }
 
