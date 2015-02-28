@@ -17,12 +17,12 @@ function Component(data){
 
 	this.socketId = data.id;
 
-	var width = (this.name.length * 4) + 20;
+	this.width = (this.name.length * 4) + 20;
 
 	if(this.outputs >= this.inputs){
-		var height = this.outputs * 25;
+		this.height = this.outputs * 25;
 	} else {
-		var height = this.inputs * 25;
+		this.height = this.inputs * 25;
 	}	
 
 }
@@ -32,4 +32,5 @@ Component.prototype.display = function(){
 	strokeWeight(2);
 	fill( 255,255,255 );
 	rect( 50,50, this.width, this.height );
+	console.log("drawing rectangle: " + this.width + " , " + this.height);
 }
