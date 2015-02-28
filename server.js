@@ -61,8 +61,9 @@ io.sockets.on('connection', function (socket){
 
 	socket.on('disconnect', function(){
 
+		var id = socket.id;
 		console.log("Client has disconnected!" + socket.id);
-		removeEntity(socket.id);
+		removeEntity(id);
 
 		var indexToRemove = connectedSockets.indexOf(socket);
 		connectedSockets.splice(indexToRemove, 1);
