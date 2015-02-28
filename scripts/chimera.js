@@ -7,8 +7,14 @@ function setup() {
 function draw() {
 
 	background(255);
-	for(var component in components){
-		component.update();
+
+	for(var i = 0; i < waves.length; i++) {
+		components[i].display();
 	}
+
+
+	// for(var component in components){
+	// 	component.update();
+	// }
 	
 }
