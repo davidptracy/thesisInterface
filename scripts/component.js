@@ -25,12 +25,21 @@ function Component(data){
 		this.height = this.inputs * 25;
 	}	
 
+	this.location = new PVector(50,50);
+
 }
 
 Component.prototype.display = function(){
+
 	stroke(0,0,0);
 	strokeWeight(2);
 	fill( 255,255,255 );
-	rect( 50,50, this.width, this.height );
-	console.log("drawing rectangle: " + this.width + " , " + this.height);
+	rect( this.location.x,50, this.location.y, this.width, this.height );
+
+}
+
+Component.prototype.setColor = function(color){
+
+	fill(color);
+
 }

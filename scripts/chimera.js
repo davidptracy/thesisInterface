@@ -9,12 +9,17 @@ function draw() {
 	background(255);
 
 	for(var i = 0; i < components.length; i++) {
-		components[i].display();
+		var c = components[i];
+
+		if ( mouseIsPressed() ){
+			if ( mouseX > c.location.x && mouseX < (640 - c.width + c.location.x) );
+			c.setColor('red'); 
+		} else {
+			c.setColor('white');
+		}
+
+		c.display();
+
 	}
-
-
-	// for(var component in components){
-	// 	component.update();
-	// }
 	
 }
