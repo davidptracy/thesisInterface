@@ -8,7 +8,7 @@ function draw() {
 
 	background(255);
 
-	for(var i = 0; i < waves.length; i++) {
+	for(var i = 0; i < components.length; i++) {
 		components[i].display();
 	}
 
