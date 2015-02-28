@@ -64,8 +64,6 @@ io.sockets.on('connection', function (socket){
 
 });
 
-io.sockets.on('')
-
 //========================================================
 //================= ENTITY CLASS =======================
 //========================================================
@@ -81,7 +79,7 @@ function Entity(data){
 		console.log(this.name+" has "+this.inputs+" inputs.");
 	}
 
-	if(data.inputs){
+	if(data.outputs){
 		this.outputs = data.outputs;
 		console.log(this.name+" has "+this.outputs+" outputs.");
 	}	
