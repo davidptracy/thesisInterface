@@ -61,9 +61,9 @@ io.sockets.on('connection', function (socket){
 
 	socket.on('disconnect', function(){
 
-		var id = socket.id;
+		var socketId = socket.id;
 		console.log("Client has disconnected!" + socket.id);
-		removeEntity(id);
+		removeEntity(socketId);
 
 		var indexToRemove = connectedSockets.indexOf(socket);
 		connectedSockets.splice(indexToRemove, 1);
@@ -76,12 +76,14 @@ io.sockets.on('connection', function (socket){
 //================== GLOBAL METHODS ======================
 //========================================================
 
-function removeEntity(id){
+function removeEntity(socketId){
+
+	var id = socketId;
 
 	for (var i = 0; i < objects.length; i++) {
 		var o = objects[i];
 
-		console.log(id);
+		console.log("id passed from method: " + id);
 		console.log("object id : " + o.id);
 
 		if (o.id == id){
