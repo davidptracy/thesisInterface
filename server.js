@@ -83,6 +83,7 @@ function removeEntity(id){
 		} else {
 			console.log('could not remove object');
 		}
+	}
 
 	io.sockets.emit('objectDisconnectFromServer', id);
 	console.log('Telling all clients to remove socket with id: '+ id);
