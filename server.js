@@ -58,7 +58,7 @@ io.sockets.on('connection', function (socket){
 		var object = new Entity(data);
 		objects.push(object);
 
-		socket.id.emit('message', 'Received Object Information');
+		io.to(socket.id).emit('message', 'Received Object Information');
 
 	});
 
