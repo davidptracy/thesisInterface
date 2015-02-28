@@ -40,6 +40,8 @@ var io = require('socket.io').listen(httpServer);
 
 var connectedSockets = [];
 
+var objects = [];
+
 io.sockets.on('connection', function (socket){
 
 	console.log("We have a new client: " + socket.id);
@@ -48,8 +50,30 @@ io.sockets.on('connection', function (socket){
 	connectedSockets.push(socket);
 
 	socket.on('disconnect', function(){
-	console.log("Client has disconnected!");
+		console.log("Client has disconnected!");
+	});
+
+	socket.on('objectProperties' function(data){
+
+		var object = new Entity(data);
+		objects.push(object);
+
+		socket.id.emit('message', 'Received Object Information');
+		
+	});
+
 });
 
+//========================================================
+//================= ENTITY CLASS =======================
+//========================================================
 
-});
+function Entity(data){	
+	if(data.name){
+		this.name = data.name;
+	}	
+}
+
+Entity.prototype.getName = function() {
+	return this.name;
+}
