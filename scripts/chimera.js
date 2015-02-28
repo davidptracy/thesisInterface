@@ -13,8 +13,10 @@ function draw() {
 
 		if ( mouseIsPressed ){
 			if ( (mouseX > c.location.x) && ( mouseX < (c.width + c.location.x) ) ) {
-				c.setColor([255,0,0]);
-				console.log("clicking over rect!"); 
+				if ( (mouseY > c.location.y) && ( mouseY < (c.height + c.location.y) ) ) {
+					c.setColor([255,0,0]);
+					console.log("clicking over rect!"); 
+				}
 			} else {
 				c.setColor([255,255,255]);
 			}			
