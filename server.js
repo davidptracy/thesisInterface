@@ -58,11 +58,13 @@ io.sockets.on('connection', function (socket){
 		var object = new Entity(data);
 		objects.push(object);
 
-		io.to(socket.id).emit('message', 'Received Object Information');
+		io.to(socket.id).emit('message', 'Server received object information');
 
 	});
 
 });
+
+io.sockets.on('')
 
 //========================================================
 //================= ENTITY CLASS =======================
@@ -72,6 +74,16 @@ function Entity(data){
 	if(data.name){
 		this.name = data.name;
 		console.log("Got new object: " + this.name);
+	}
+
+	if(data.inputs){
+		this.inputs = data.inputs;
+		console.log(this.name+" has "+this.inputs+" inputs.");
+	}
+
+	if(data.inputs){
+		this.outputs = data.outputs;
+		console.log(this.name+" has "+this.outputs+" outputs.");
 	}	
 }
 
