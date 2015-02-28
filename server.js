@@ -79,8 +79,8 @@ function updateClient(){
 	if (objects){
 
 		for(var i = 0; i < objects.length; i++){
-			io.sockets.emit('objectFromServer', object);
-			console.log('sending object: '+ object.name );	
+			io.sockets.emit('objectFromServer', objects[i]);
+			console.log('sending object: '+ objects[i].name );	
 		}
 
 		// for (var object in objects){
