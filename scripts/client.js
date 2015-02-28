@@ -13,9 +13,13 @@ socket.on('connect', function(){
 });
 
 socket.on('objectFromServer', function(data){
-	//create a component
-	var component = new Component(data);
-	components.push(component);
+
+	//create a component if it's not in the list already
+	if ( !verifyEntity(data) ){
+		var component = new Component(data);
+		components.push(component);
+	}
+	
 });
 
 socket.on('message', function(data){
@@ -25,3 +29,15 @@ socket.on('message', function(data){
 socket.on('disconnect', function(){
 	console.log('Disconnected from Server');
 });
+
+
+
+function verifyEntity(data){
+	for (var i = 0; i < components.length; i++) {
+        if (components[i].id === data.id) {
+        	console.log(data.name + " already exists!");
+            return true;
+        }
+    }
+    return false;
+}
