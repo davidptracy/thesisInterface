@@ -60,10 +60,13 @@ io.sockets.on('connection', function (socket){
 	});
 
 	socket.on('disconnect', function(){
+
 		console.log("Client has disconnected!" + socket.id);
 		removeEntity(socket.id);
+
 		var indexToRemove = connectedSockets.indexOf(socket);
 		connectedSockets.splice(indexToRemove, 1);
+
 	});
 
 });
@@ -76,10 +79,16 @@ function removeEntity(id){
 
 	for (var i = 0; i < objects.length; i++) {
 		var o = objects[i];
+
+		console.log(id);
+		console.log("object id : " + o.id);
+
 		if (o.id == id){
+
 			var indexToRemove = objects.indexOf(o);
 			objects.splice(indexToRemove, 1);
 			break;
+
 		} else {
 			console.log('could not remove object');
 		}
