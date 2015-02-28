@@ -24,6 +24,7 @@ socket.on('objectFromServer', function(data){
 
 socket.on('objectDisconnectFromServer', function(data){
 	var id = data;
+	console.log('received device disconnection notice ' + id);
 
 	for (var i = 0; i < components.length; i++) {
 		var c = components[i];

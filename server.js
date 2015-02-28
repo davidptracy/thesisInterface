@@ -60,7 +60,8 @@ io.sockets.on('connection', function (socket){
 	});
 
 	socket.on('disconnect', function(){
-		console.log("Client has disconnected!");
+		console.log("Client has disconnected!" + socket.id);
+		removeEntity(socket.id);
 		var indexToRemove = connectedSockets.indexOf(socket);
 		connectedSockets.splice(indexToRemove, 1);
 	});
@@ -72,6 +73,20 @@ io.sockets.on('connection', function (socket){
 //========================================================
 
 function removeEntity(id){
+
+	for (var i = 0; i < objects.length; i++) {
+		var o = objects[i];
+		if (o.id == id){
+			var indexToRemove = objects.indexOf(o);
+			objects.splice(indexToRemove, 1);
+			break;
+		} else {
+			console.log('could not remove object');
+		}
+
+	io.sockets.emit('objectDisconnectFromServer', id);
+	console.log('Telling all clients to remove socket with id: '+ id);
+
 }
 
 function updateClient(){
@@ -83,12 +98,7 @@ function updateClient(){
 			console.log('sending object: '+ objects[i].name );	
 		}
 
-		// for (var object in objects){
-		// 	io.sockets.emit('objectFromServer', object);
-		// 	console.log('sending object: '+ object.name );
-		// }
-
-	}
+	} 
 }
 
 // if (objects.length > 0){
