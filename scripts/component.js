@@ -7,10 +7,12 @@ function Component(data){
 
 	if(data.inputs){
 		this.inputs = data.inputs;
+		console.log(this.name+" has "+this.inputs+" inputs.");
 	}
 
 	if(data.outputs){
 		this.outputs = data.outputs;
+		console.log(this.name+" has "+this.outputs+" outputs.");
 	}
 
 	this.socketId = id;
@@ -23,8 +25,11 @@ function Component(data){
 		var height = this.inputs * 25;
 	}	
 
+}
+
+Component.prototype.display(){
 	stroke(0,0,0);
+	strokeWeight(2);
 	fill( 255,255,255 );
 	rect( 50,50, width, height );
-
 }

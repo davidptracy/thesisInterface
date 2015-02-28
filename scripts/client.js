@@ -6,8 +6,6 @@
 
 var socket = io();
 
-var components = [];
-
 socket.on('connect', function(){
 
 	console.log('Connection Established with Server ...');
