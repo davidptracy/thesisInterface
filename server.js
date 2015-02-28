@@ -76,12 +76,13 @@ function removeEntity(id){
 function updateClient(){
 	for (var object in objects){
 		io.sockets.emit('objectFromServer', object);
+		console.log('sending object: '+object.name);
 	}
 }
 
-if (objects.length > 0){
-	setInterval(updateClient, 1000);
-}
+// if (objects.length > 0){
+setInterval(updateClient, 1000);
+// }
 
 
 
