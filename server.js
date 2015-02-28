@@ -88,7 +88,7 @@ function removeEntity(socketId){
 		console.log("id passed from method: " + id);
 		console.log("object id : " + o.id);
 
-		if (o.id == id){
+		if (o.socketId == id){
 
 			var indexToRemove = objects.indexOf(o);
 			objects.splice(indexToRemove, 1);
