@@ -2,7 +2,9 @@
 //============ SOCKET.IO CLIENT PORTION ==================
 //========================================================
 
-var socket = require('socket.io-client')('http://104.131.39.242:5000');
+// var socket = require('socket.io-client')('http://104.131.39.242:5000');
+
+var socket = io();
 
 var components = [];
 
