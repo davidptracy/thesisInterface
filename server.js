@@ -86,7 +86,7 @@ function removeEntity(socketId){
 		var o = objects[i];
 
 		console.log("id passed from method: " + id);
-		console.log("object id : " + o.id);
+		console.log("object id : " + o.socketId);
 
 		if (o.socketId == id){
 

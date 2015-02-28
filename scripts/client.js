@@ -29,7 +29,7 @@ socket.on('objectDisconnectFromServer', function(data){
 	for (var i = 0; i < components.length; i++) {
 		var c = components[i];
 
-		if (c.id == id){
+		if (c.socketId == id){
 			var indexToRemove = components.indexOf(c);
 			components.splice(indexToRemove, 1);
 		};		
@@ -45,11 +45,13 @@ socket.on('disconnect', function(){
 	console.log('Disconnected from Server');
 });
 
+
+
 function verifyEntity(data){
 
 	if (components){
 		for (var i = 0; i < components.length; i++) {
-	        if (components[i].id === data.id) {
+	        if (components[i].socketId === data.id) {
 	        	console.log(data.name + " already exists!");
 	            return true;
 	        }
