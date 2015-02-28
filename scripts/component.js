@@ -32,8 +32,8 @@ function Component(data){
 Component.prototype.display = function(){
 
 	stroke(0,0,0);
-	strokeWeight(2);
-	fill( 255,255,255 );
+	strokeWeight(1);
+	
 	rect( this.location.x,50, this.location.y, this.width, this.height );
 
 }
@@ -41,6 +41,5 @@ Component.prototype.display = function(){
 Component.prototype.setColor = function(color){
 
 	fill(color);
-	// console.log("setColor triggered!");
 
 }
