@@ -49,26 +49,48 @@ io.sockets.on('connection', function (socket){
 	//add it to the array of connected sockets
 	connectedSockets.push(socket);
 
-	socket.on('disconnect', function(){
-		console.log("Client has disconnected!");
-	});
-
 	socket.on('objectProperties', function(data){
 
-		var object = new Entity(data);
+		var object = new Entity(data, socket.id);
 		objects.push(object);
 
 		io.to(socket.id).emit('message', 'Server received object information');
 
 	});
 
+	socket.on('disconnect', function(){
+		console.log("Client has disconnected!");
+		var indexToRemove = connectedSockets.indexOf(socket);
+		connectedSockets.splice(indexToRemove, 1);
+	});
+
 });
 
 //========================================================
-//================= ENTITY CLASS =======================
+//================== GLOBAL METHODS ======================
 //========================================================
 
-function Entity(data){	
+function removeEntity(id){
+}
+
+function updateClient(){
+	for (var object in objects){
+		io.sockets.emit('objectFromServer', object);
+	}
+}
+
+if (objects.length > 0){
+	setInterval(updateClient, 1000);
+}
+
+
+
+//========================================================
+//================== ENTITY CLASS ========================
+//========================================================
+
+function Entity(data, id){	
+	
 	if(data.name){
 		this.name = data.name;
 		console.log("Got new object: " + this.name);
@@ -82,9 +104,17 @@ function Entity(data){
 	if(data.outputs){
 		this.outputs = data.outputs;
 		console.log(this.name+" has "+this.outputs+" outputs.");
-	}	
+	}
+
+	this.socketId = id;
+	console.log(this.name+" has an associated socket ID of : "+this.socketId);
+
 }
 
 Entity.prototype.getName = function() {
 	return this.name;
+}
+
+Entity.prototype.getObjectId = function() {
+	return this.id;
 }

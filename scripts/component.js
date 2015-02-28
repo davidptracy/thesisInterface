@@ -2,6 +2,7 @@ function Component(data){
 
 	if(data.name){
 		this.name = data.name;
+		console.log("Got new object: " + this.name);
 	}
 
 	if(data.inputs){
